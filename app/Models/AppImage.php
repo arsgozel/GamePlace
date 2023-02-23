@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class AppImage extends Model
 {
-    use HasFactory;
+    protected $guarded = [
+        'id',
+    ];
+
+    public $timestamps = false;
+
+
+    public function app()
+    {
+        return $this->belongsTo(App::class);
+    }
 }

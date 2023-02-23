@@ -88,8 +88,6 @@ return [
     'ordering' => 'Tertiple',
     'nameAsc' => 'Ady (A-Z)',
     'nameDesc' => 'Ady (Z-A)',
-    'priceLow' => 'Bahasy (low-high)',
-    'priceHigh' => 'Bahasy (high-low)',
     'newest' => 'Täzeden - Könä',
     'oldest' => 'Köneden - Täzä',
 ];

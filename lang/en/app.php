@@ -96,8 +96,6 @@ return [
     'ordering' => 'Ordering',
     'nameAsc' => 'Name (A-Z)',
     'nameDesc' => 'Name (Z-A)',
-    'priceLow' => 'Price (low-high)',
-    'priceHigh' => 'Price (high-low)',
     'newest' => 'Newest - Oldest',
     'oldest' => 'Oldest - Newest',
 ];
