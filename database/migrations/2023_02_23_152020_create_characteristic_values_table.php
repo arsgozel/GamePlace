@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('characteristic_values', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('characteristic_id')->index();
+            $table->foreign('characteristic_id')->references('id')->on('characteristics')->cascadeOnDelete();
+            $table->string('name_tm');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
+            $table->unsignedInteger('sort_order')->default(1);
         });
     }
 

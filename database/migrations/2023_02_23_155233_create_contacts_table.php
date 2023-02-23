@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_images', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('app_id')->index();
-            $table->foreign('app_id')->references('id')->on('apps')->cascadeOnDelete();
-            $table->string('image');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->string('message');
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_images');
+        Schema::dropIfExists('contacts');
     }
 };

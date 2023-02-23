@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name_tm');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
+            $table->unsignedInteger('sort_order')->default(1);
         });
     }
 

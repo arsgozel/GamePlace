@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name_tm');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
         });
     }
 

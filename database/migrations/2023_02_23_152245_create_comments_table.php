@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id')->index();
+            $table->foreign('client_id')->references('id')->on('clients')->cascadeOnDelete();
+            $table->boolean('is_approved')->default(0);
+            $table->text('comment');
+            $table->unsignedInteger('rating')->default(1);
             $table->timestamps();
         });
     }

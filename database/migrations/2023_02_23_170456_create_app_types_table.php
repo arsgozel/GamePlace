@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_images', function (Blueprint $table) {
-            $table->id();
+        Schema::create('app_types', function (Blueprint $table) {
+            $table->unsignedBigInteger('type_id')->index();
+            $table->foreign('type_id')->references('id')->on('types')->cascadeOnDelete();
             $table->unsignedBigInteger('app_id')->index();
             $table->foreign('app_id')->references('id')->on('apps')->cascadeOnDelete();
-            $table->string('image');
+            $table->primary(['app_id', 'type_id']);
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_images');
+        Schema::dropIfExists('app_types');
     }
 };
