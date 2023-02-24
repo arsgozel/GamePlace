@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             CharacteristicValueSeeder::class,
         ));
 
-        App::factory()->count(5)->create();
+        App::factory()->count(30)->create();
         Contact::factory()->count(10)->create();
         Client::factory()->count(15)->create();
         Comment::factory()->count(25)->create();
