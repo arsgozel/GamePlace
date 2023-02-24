@@ -23,7 +23,7 @@ class Type extends Model
     public function apps()
     {
         return $this->belongsToMany(App::class, 'app_types')
-            ->orderBy('id', 'desc');
+            ->orderByPivot('name_tm');
     }
 
 

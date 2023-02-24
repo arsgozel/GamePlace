@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('devices', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_tm');
-            $table->string('name_en')->nullable();
+        Schema::table('devices', function (Blueprint $table) {
+            $table->unsignedInteger('sort_order')->default(1);
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devices');
+        Schema::table('devices', function (Blueprint $table) {
+            $table->dropColumn('sort_order');
+        });
     }
 };

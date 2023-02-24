@@ -23,7 +23,7 @@ class App extends Model
     protected static function booted()
     {
         static::saving(function ($obj) {
-            $obj->slug = str()->slug($obj->full_name_tm);
+            $obj->slug = str()->slug($obj->name_tm);
         });
     }
 
@@ -31,6 +31,13 @@ class App extends Model
     public function types()
     {
         return $this->belongsToMany(Type::class, 'app_types')
+            ->orderByPivot('sort_order');
+    }
+
+
+    public function devices()
+    {
+        return $this->belongsToMany(Device::class, 'app_devices')
             ->orderByPivot('sort_order');
     }
 
@@ -58,6 +65,13 @@ class App extends Model
     {
         return $this->hasMany(AppImage::class)
             ->orderBy('id');
+    }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)
+            ->orderBy('id', 'desc');
     }
 
 

@@ -13,17 +13,10 @@ class Device extends Model
 
     public $timestamps = false;
 
-    protected static function booted()
-    {
-        static::saving(function ($obj) {
-            $obj->slug = str()->slug($obj->name_tm);
-        });
-    }
-
     public function apps()
     {
-        return $this->HasMany(App::class)
-            ->orderBy('id', 'desc');
+        return $this->belongsToMany(App::class, 'app_types')
+            ->orderByPivot('name_tm');
     }
 
 

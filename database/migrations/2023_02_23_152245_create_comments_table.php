@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('client_id')->references('id')->on('clients')->cascadeOnDelete();
             $table->boolean('is_approved')->default(0);
             $table->text('comment');
-            $table->unsignedInteger('rating')->default(1);
+            $table->unsignedInteger('star')->default(0);
             $table->timestamps();
         });
     }

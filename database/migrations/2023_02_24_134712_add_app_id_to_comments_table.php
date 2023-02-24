@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('app_comments', function (Blueprint $table) {
-            $table->unsignedBigInteger('comment_id')->index();
-            $table->foreign('comment_id')->references('id')->on('comments')->cascadeOnDelete();
+        Schema::table('comments', function (Blueprint $table) {
             $table->unsignedBigInteger('app_id')->index();
             $table->foreign('app_id')->references('id')->on('apps')->cascadeOnDelete();
-            $table->primary(['app_id', 'comment_id']);
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_comments');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropColumn('app_id');
+        });
     }
 };

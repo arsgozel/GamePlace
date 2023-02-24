@@ -11,9 +11,13 @@ class TypeSeeder extends Seeder
     public function run()
     {
         $objs = [
-            ['Mugallym', null, [
-                ['Inlis dili mugallym', null],
-                ['Rus dili mugallym', null],
+            ['Oýunlar', null, [
+                ['Aсtion', null],
+                ['Adventure', null],
+            ]],
+            ['E-Kitaplar', null, [
+                ['Bisness', null],
+                ['Drama', null],
             ]],
 
         ];

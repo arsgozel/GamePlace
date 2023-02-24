@@ -23,4 +23,10 @@ class Comment extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+
+    public function app()
+    {
+        return $this->belongsTo(App::class);
+    }
 }
