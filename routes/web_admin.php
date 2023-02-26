@@ -42,6 +42,6 @@ Route::middleware('auth')
         Route::resource('devices', DeviceController::class)->except(['show']);
         Route::resource('managers', ManagerController::class)->except(['show']);
         Route::resource('contacts', ContactController::class)->only(['index', 'destroy']);
-        Route::resource('comments', CommentController::class)->only(['index', 'destroy']);
+        Route::resource('comments', CommentController::class)->except(['show', 'create', 'store']);
         Route::resource('clients', ClientController::class)->except(['create', 'store']);
     });

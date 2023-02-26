@@ -22,7 +22,7 @@ class CommentFactory extends Factory
         $app = DB::table('apps')->inRandomOrder()->first();
 
         return [
-            'is_approved' => fake()->boolean(60),
+            'is_approved' => rand(0, 1),
             'client_id' => $client->id,
             'app_id' => $app->id,
             'comment' => fake()->text(rand(20, 50)),

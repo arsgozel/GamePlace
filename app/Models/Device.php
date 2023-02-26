@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Device extends Model
 {
@@ -27,5 +28,10 @@ class Device extends Model
         } else {
             return $this->name_tm;
         }
+    }
+
+    public function getImage()
+    {
+        return $this->image ? Storage::url('d/' . $this->image) : asset('img/device.jpg');
     }
 }

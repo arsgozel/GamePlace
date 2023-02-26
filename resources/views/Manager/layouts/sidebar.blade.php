@@ -1,10 +1,15 @@
-<div class="d-flex flex-column flex-shrink-0 col-md-3 col-lg-2 d-md-block bg-light border-end sidebar collapse" style="width: 229px;">
+<div class="d-flex flex-column flex-shrink-0 col-md-3 col-lg-2 d-md-block bg-light border-end sidebar collapse" style="width: 226px;">
     <ul class="nav nav-pills flex-column mb-auto">
-        <hr>
         <li>
-            <a href="{{ route('manager.dashboard') }}" class="nav-link link-dark">
+            <a href="{{ route('manager.dashboard') }}" class="nav-link link-dark pt-4">
                 <i class="bi bi-speedometer"></i>
                 @lang('app.dashboard')
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('manager.apps.index') }}" class="nav-link link-dark">
+                <i class="bi bi-hdd-stack-fill"></i>
+                @lang('app.apps')
             </a>
         </li>
         <li>

@@ -18,5 +18,35 @@
                 </a>
             </div>
         @endforeach
+            <div class="col-lg-4">
+                <div class="card">
+                    <a href="{{ route('manager.comments.index', ['status' => 0]) }}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                        <div>Tassyklanylmadyk - @lang('app.comments')</div>
+                    </a>
+                    <div class="card-body small p-1">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped table-sm mb-0">
+                                <tbody>
+                                @forelse($not_approved as $obj)
+                                    <tr>
+                                        <td width="40%">
+                                            <span><img src="{{ $obj->app->getImage() }}" alt="{{ $obj->app->image }}" class="img-fluid rounded-5" style="max-height:2rem;"></span>
+                                            {{ $obj->app->getName()}}
+                                        </td>
+                                        <td width="40%">
+                                            <i class="bi bi-chat-dots-fill text-secondary"></i> {{$obj->comment}}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr class="table-warning">
+                                        <td>Not found</td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 @endsection

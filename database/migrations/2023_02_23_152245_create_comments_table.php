@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('client_id')->index();
             $table->foreign('client_id')->references('id')->on('clients')->cascadeOnDelete();
-            $table->boolean('is_approved')->default(0);
+            $table->unsignedTinyInteger('is_approved')->default(0);
             $table->text('comment');
             $table->unsignedInteger('star')->default(0);
             $table->timestamps();

@@ -86,6 +86,6 @@ class App extends Model
 
     public function getImage()
     {
-        return $this->image ? Storage::url('a/' . $this->image) : asset('img/app.jpg');
+        return $this->image ? Storage::url('a/' . $this->image) : asset('img/app.png');
     }
 }

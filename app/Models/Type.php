@@ -49,4 +49,9 @@ class Type extends Model
             return $this->name_tm;
         }
     }
+
+    public function getImage()
+    {
+        return $this->image ? Storage::url('c/' . $this->image) : asset('img/category.jpg');
+    }
 }

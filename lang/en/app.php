@@ -7,7 +7,7 @@ return [
     'dashboard' => 'Dashboard',
     'user' => 'Manager',
     'users' => 'Users',
-    'type' => 'Type',
+    'types' => 'Type',
     'types' => 'Types',
     'parentType' => 'Parent Type',
     'app' => 'App',
@@ -58,7 +58,7 @@ return [
     'canceled' => 'Canceled',
     'not-verified' => 'Not-verified',
     'verified' => 'Verified',
-
+    'is_approved' => 'Approve',
     'receivedAt' => 'Received at',
     'createdAt' => 'Created at',
     'updatedAt' => 'Updated at',

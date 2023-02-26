@@ -6,14 +6,14 @@
     <div class="navbar-nav flex-row ms-auto me-md-0">
         <div class="nav-item text-nowrap">
             <a class="nav-link px-3" href="{{ route('manager.dashboard') }}" target="_blank">
-                <i class="bi bi-house text-dark"></i></i><span class="text-dark px-1">Baş sahypa</span>
+                <i class="bi bi-house text-danger"></i></i><span class="text-dark px-1">Baş sahypa</span>
             </a>
         </div>
     </div>
         <div class="nav-item text-nowrap">
             <a class="nav-link px-3" href="{{ route('manager.logout') }}"
                onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
-                <i class="bi-box-arrow-right text-dark"></i> @lang('app.logout')
+                <i class="bi-box-arrow-right text-danger"></i> @lang('app.logout')
             </a>
         </div>
     </div>

@@ -29,4 +29,13 @@ class Comment extends Model
     {
         return $this->belongsTo(App::class);
     }
+
+    public function status()
+    {
+        if ($this->is_approved == 1) {
+            return 'success';
+        } elseif ($this->is_approved == 0) {
+            return 'danger';
+        }
+    }
 }

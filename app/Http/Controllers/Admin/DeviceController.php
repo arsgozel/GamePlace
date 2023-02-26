@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Device;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
 {
     public function index()
     {
-        $objs = Type::orderBy('sort_order')
-            ->with('parent')
+        $objs = Device::orderBy('sort_order')
             ->get();
 
-        return view('admin.category.index')
+        return view('manager.devices.index')
             ->with([
                 'objs' => $objs,
             ]);
@@ -22,52 +22,44 @@ class DeviceController extends Controller
 
     public function create()
     {
-        $parents = Category::whereNull('parent_id')
-            ->orderBy('sort_order')
+        $parents = Device::orderBy('sort_order')
             ->get();
 
-        return view('admin.category.create')
-            ->with([
-                'parents' => $parents,
-            ]);
+        return view('manager.devices.create');
     }
 
 
     public function store(Request $request)
     {
         $request->validate([
-            'parent' => ['nullable', 'integer', 'min:1'],
             'name_tm' => ['required', 'string', 'max:255'],
             'name_en' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['required', 'integer', 'min:1'],
         ]);
 
-        $obj = Category::create([
-            'parent_id' => $request->parent ?: null,
+        $obj = Device::create([
             'name_tm' => $request->name_tm,
             'name_en' => $request->name_en ?: null,
             'sort_order' => $request->sort_order,
         ]);
 
-        return to_route('admin.categories.index')
+        return to_route('manager.devices.index')
             ->with([
-                'success' => trans('app.category') . ' (' . $obj->getName() . ') ' . trans('app.added') . '!'
+                'success' => trans('app.device') . trans('app.added') . '!'
             ]);
     }
 
 
     public function edit($id)
     {
-        $obj = Category::findOrFail($id);
-        $parents = Category::where('id', '!=', $obj->id)
-            ->whereNull('parent_id')
+        $obj = Device::findOrFail($id);
+        $parents = Device::where('id', '!=', $obj->id)
             ->orderBy('sort_order')
             ->get();
 
-        return view('admin.category.edit')
+        return view('manager.devices.edit')
             ->with([
                 'obj' => $obj,
-                'parents' => $parents,
             ]);
     }
 
@@ -75,44 +67,34 @@ class DeviceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'parent' => ['nullable', 'integer', 'min:1'],
             'name_tm' => ['required', 'string', 'max:255'],
             'name_en' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['required', 'integer', 'min:1'],
         ]);
 
-        $obj = Category::updateOrCreate([
+        $obj = Device::updateOrCreate([
             'id' => $id,
         ], [
-            'parent_id' => $request->parent ?: null,
             'name_tm' => $request->name_tm,
             'name_en' => $request->name_en ?: null,
             'sort_order' => $request->sort_order,
         ]);
 
-        return to_route('admin.categories.index')
+        return to_route('manager.devices.index')
             ->with([
-                'success' => trans('app.category') . ' (' . $obj->getName() . ') ' . trans('app.updated') . '!'
+                'success' => trans('app.device') . trans('app.updated') . '!'
             ]);
     }
 
 
     public function destroy($id)
     {
-        $obj = Category::withCount('child', 'jobs')
-            ->findOrFail($id);
-        $objName = $obj->getName();
-        if ($obj->child_count > 0 or $obj->jobs_count > 0) {
-            return redirect()->back()
-                ->with([
-                    'error' => trans('app.error') . '!'
-                ]);
-        }
+        $obj = Device::findOrFail($id);
         $obj->delete();
 
         return redirect()->back()
             ->with([
-                'success' => trans('app.category') . ' (' . $objName . ') ' . trans('app.deleted') . '!'
+                'success' => trans('app.device') . trans('app.deleted') . '!'
             ]);
     }
 }

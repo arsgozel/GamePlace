@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\App;
 use App\Models\CharacteristicValue;
 use App\Models\Client;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Device;
 use App\Models\Type;
@@ -24,9 +25,15 @@ class DashboardController extends Controller
             ['name' => 'clients', 'total' => Client::count()],
         ];
 
+        $not_approved = Comment::where('is_approved', 0)
+            ->take(10)
+            ->with(['app'])
+            ->get();
+
         return view('manager.dashboard.index')
             ->with([
                 'modals' => $modals,
+                'not_approved' => $not_approved,
             ]);
     }
 }
