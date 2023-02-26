@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('message');
+        Schema::table('apps', function (Blueprint $table) {
+            $table->unsignedInteger('rating')->default(0);
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::table('apps', function (Blueprint $table) {
+            $table->dropColumn('rating');
+        });
     }
 };

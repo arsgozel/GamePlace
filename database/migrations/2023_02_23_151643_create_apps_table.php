@@ -24,9 +24,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->unsignedInteger('downloads')->default(0);
             $table->string('size')->default(0);
-            $table->unsignedInteger('rating')->default(0);
-            $table->string('version')->default(0);
-            $table->text('description')->nullable();
             $table->unsignedInteger('random')->default(0);
             $table->timestamps();
         });
