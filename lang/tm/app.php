@@ -28,6 +28,10 @@ return [
     'authAttempt' => null,
     'authAttempts' => null,
 
+    'contacts' => 'Kontaktlar',
+    'devices' => 'Guramalar',
+    'comments' => 'Teswirler',
+    'managers' => 'Adminlar',
     'sendCode' => 'Kod ugratmak',
     'login' => 'Ulgama girmek',
     'logout' => 'Ulgamdan çykmak',

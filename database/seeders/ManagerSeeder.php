@@ -14,7 +14,7 @@ class ManagerSeeder extends Seeder
     public function run()
     {
         Manager::create([
-            'name' => 'Admin',
+            'name' => 'Manager',
             'username' => 'admin',
             'password' => bcrypt('password'),
         ]);

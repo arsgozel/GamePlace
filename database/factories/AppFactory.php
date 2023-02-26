@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\App;
 use App\Models\CharacteristicValue;
 use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -27,6 +28,7 @@ class AppFactory extends Factory
             'name_en' => $nameEn,
             'age_rating_id' => $age_rating->id,
             'language_id' => $language->id,
+            'has_add' => fake()->boolean(60),
             'slug' => str()->slug($nameTm) . '-' . str()->random(10),
             'downloads' => rand(10, 20),
             'rating' => rand(1, 5),

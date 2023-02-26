@@ -38,17 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'managers',
         ],
-        'customer_web' => [
+        'clients_web' => [
             'driver' => 'session',
-            'provider' => 'customers',
+            'provider' => 'clients',
         ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | Manager Providers
     |--------------------------------------------------------------------------
     |
     | All authentication drivers have a user provider. This defines how the
@@ -64,11 +64,11 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'managers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Manager::class,
         ],
-        'customers' => [
+        'clients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Client::class,
         ],

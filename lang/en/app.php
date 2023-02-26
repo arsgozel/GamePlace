@@ -5,7 +5,7 @@ return [
     'search' => 'Search',
 
     'dashboard' => 'Dashboard',
-    'user' => 'User',
+    'user' => 'Manager',
     'users' => 'Users',
     'type' => 'Type',
     'types' => 'Types',
@@ -28,7 +28,9 @@ return [
     'userAgents' => 'UserAgents',
     'authAttempt' => 'AuthAttempt',
     'authAttempts' => 'AuthAttempts',
-
+    'contacts' => 'Contacts',
+    'devices' => 'Devices',
+    'comments' => 'Comments',
     'sendCode' => 'Send code',
     'login' => 'Login',
     'logout' => 'Logout',
