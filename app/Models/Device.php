@@ -17,7 +17,7 @@ class Device extends Model
     public function apps()
     {
         return $this->belongsToMany(App::class, 'app_types')
-            ->orderByPivot('name_tm');
+            ->orderBy('name_tm');
     }
 
 

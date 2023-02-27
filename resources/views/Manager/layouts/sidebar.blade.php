@@ -48,5 +48,11 @@
                 @lang('app.managers')
             </a>
         </li>
+        <li>
+            <a href="{{ route('manager.visitors.index') }}" class="nav-link link-dark">
+                <i class="bi bi-person-bounding-box"></i>
+                @lang('app.visitors')
+            </a>
+        </li>
     </ul>
 </div>

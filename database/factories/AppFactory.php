@@ -20,16 +20,14 @@ class AppFactory extends Factory
         $num2 = rand(1, 10);
         $num3 = rand(1, 10);
         $sizeAmounts = ['Gb', 'Mb', 'Kb'];
-        $nameTm = fake()->streetName();
-        $nameEn = null;
+        $name = fake()->streetName();
 
         return [
-            'name_tm' => $nameTm,
-            'name_en' => $nameEn,
+            'name' => $name,
             'age_rating_id' => $age_rating->id,
             'language_id' => $language->id,
             'has_add' => fake()->boolean(60),
-            'slug' => str()->slug($nameTm) . '-' . str()->random(10),
+            'slug' => str()->slug($name) . '-' . str()->random(10),
             'downloads' => rand(10, 20),
             'rating' => rand(1, 5),
             'created_at' => fake()->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),

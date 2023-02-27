@@ -53,9 +53,6 @@ class DeviceController extends Controller
     public function edit($id)
     {
         $obj = Device::findOrFail($id);
-        $parents = Device::where('id', '!=', $obj->id)
-            ->orderBy('sort_order')
-            ->get();
 
         return view('manager.devices.edit')
             ->with([

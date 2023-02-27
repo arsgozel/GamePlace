@@ -40,7 +40,7 @@ class CommentController extends Controller
             ->paginate(50)
             ->withQueryString();
 
-        $app = App::orderBy('name_tm')
+        $app = App::orderBy('name')
             ->get();
 
         $clients = Client::orderBy('name')

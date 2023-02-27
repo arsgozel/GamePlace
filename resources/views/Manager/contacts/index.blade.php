@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{ $obj->id }}</td>
                     <td>
-                        <i class="bi-telephone-fill text-primary"></i>
+                        <i class="bi-telephone-fill text-success"></i>
                         <a href="tel:+993{{ $obj->phone }}" class="text-decoration-none">
                             +993 {{ $obj->phone }}
                         </a>
@@ -38,7 +38,7 @@
                     <td>
                         @if($obj->message)
                             <div class='small'>
-                                <i class="bi bi-envelope-fill text-primary"></i></i> {{ $obj->message }}
+                                <i class="bi bi-envelope-fill text-success"></i></i> {{ $obj->message }}
                             </div>
                         @endif
                     </td>

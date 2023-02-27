@@ -23,7 +23,7 @@ class App extends Model
     protected static function booted()
     {
         static::saving(function ($obj) {
-            $obj->slug = str()->slug($obj->name_tm);
+            $obj->slug = str()->slug($obj->name);
         });
     }
 
@@ -31,14 +31,14 @@ class App extends Model
     public function types()
     {
         return $this->belongsToMany(Type::class, 'app_types')
-            ->orderByPivot('sort_order');
+            ->orderBy('id');
     }
 
 
     public function devices()
     {
         return $this->belongsToMany(Device::class, 'app_devices')
-            ->orderByPivot('sort_order');
+            ->orderBy('id');
     }
 
 
@@ -77,15 +77,21 @@ class App extends Model
 
     public function getName()
     {
-        if (app()->getLocale() == 'en') {
-            return $this->name_en ?: $this->name_tm;
-        } else {
-            return $this->name_tm;
-        }
+        return $this->name;
     }
 
     public function getImage()
     {
         return $this->image ? Storage::url('a/' . $this->image) : asset('img/app.png');
+    }
+
+
+    public function status()
+    {
+        if ($this->has_add == 1) {
+            return 'success';
+        } elseif ($this->has_add == 0) {
+            return 'danger';
+        }
     }
 }

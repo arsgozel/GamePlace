@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\VisitorController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
@@ -44,4 +45,5 @@ Route::middleware('auth')
         Route::resource('contacts', ContactController::class)->only(['index', 'destroy']);
         Route::resource('comments', CommentController::class)->except(['show', 'create', 'store']);
         Route::resource('clients', ClientController::class)->except(['create', 'store']);
+        Route::resource('visitors', VisitorController::class)->only(['index', 'destroy']);
     });

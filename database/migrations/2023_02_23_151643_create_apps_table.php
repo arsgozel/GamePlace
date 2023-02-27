@@ -17,9 +17,7 @@ return new class extends Migration
             $table->foreign('age_rating_id')->references('id')->on('characteristic_values')->nullOnDelete();
             $table->unsignedBigInteger('language_id')->index()->nullable();
             $table->foreign('language_id')->references('id')->on('characteristic_values')->nullOnDelete();
-            $table->string('name_tm');
-            $table->string('name_en')->nullable();
-            $table->string('name_ru')->nullable();
+            $table->string('name');
             $table->string('slug');
             $table->string('image')->nullable();
             $table->unsignedInteger('downloads')->default(0);

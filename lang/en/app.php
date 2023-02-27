@@ -77,6 +77,9 @@ return [
     'delete' => 'Delete',
     'deleted' => 'deleted',
 
+
+    'has_add' => 'Has adds',
+    'no_add' => 'No ads',
     'error' => 'Error',
     'codeDelete' => '#:code deleted',
     'notes' => 'Notes',
