@@ -28,7 +28,7 @@
             </div>
             <div class="form-check @error('is_approved') is-invalid @enderror">
                 <input class="form-check-input" type="radio" name="is_approved" id="is_approved"
-                       value="0" {{ $obj->is_approved == 0 ? 'checked':'' }}>
+                       value="2" {{ $obj->is_approved == 2 ? 'checked':'' }}>
                 <label class="form-check-label" for="is_approved">
                     <i class="bi bi-x-circle-fill text-danger"></i>
                 </label>

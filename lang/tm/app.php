@@ -68,12 +68,12 @@ return [
     'close' => 'Çykmak',
     'delete' => 'Pozmak',
     'deleted' => 'pozuldy',
-
+    'approved' => 'Tassyklandy',
+    'loading' => 'Garaşylýar',
+    'not_approved' => 'Tassyklanmady',
     'error' => 'Näsazlyk',
-
-    'shippingInformation' => 'Iberiş maglumatlary',
-    'customerInformation' => 'Müşderi maglumatlary',
-    'additionalDetails' => 'Goşmaça maglumatlar',
+    'online' => 'Online',
+    'offline' => 'Offline',
 
     'codeDelete' => '#:code pozuldy',
     'notes' => 'Bellikler',
@@ -81,10 +81,6 @@ return [
     'productCode' => 'Haryt kody',
     'status' => 'Ýagdaýy',
     'language' => 'Dil',
-    'payment' => 'Töleg',
-    'platform' => null,
-    'code' => 'Kod',
-    'statistics' => 'Statistika',
 
     'yes' => 'Hawa',
     'no' => 'Ýok',

@@ -30,11 +30,25 @@ class Comment extends Model
         return $this->belongsTo(App::class);
     }
 
+
     public function status()
     {
-        if ($this->is_approved == 1) {
+        if ($this->is_approved == 0) {
+            return trans('app.loading');
+        } elseif ($this->is_approved == 1) {
+            return trans('app.approved');
+        } else {
+            return trans('app.not_approved');
+        }
+    }
+
+    public function statusColor()
+    {
+        if ($this->is_approved == 0) {
+            return 'warning';
+        } elseif ($this->is_approved == 1) {
             return 'success';
-        } elseif ($this->is_approved == 0) {
+        } else {
             return 'danger';
         }
     }

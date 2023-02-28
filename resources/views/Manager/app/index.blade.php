@@ -9,19 +9,20 @@
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover table-bordered table-striped">
             <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Image</th>
-                <th scope="col" width="15%">Rating</th>
+                <th scope="col" width="50%">Rating</th>
                 <th scope="col">Name</th>
-                <th scope="col">Ads</th>
+                <th scope="col" width="10%"> Types</th>
+                <th scope="col" width="10%"> Devices</th>
+                <th scope="col" width="10%">Ads</th>
+                <th scope="col">Status</th>
                 <th scope="col">Version</th>
                 <th scope="col">Downloads</th>
                 <th scope="col" width="10%">Size</th>
-                <th scope="col" width="10%"><i class="bi bi-bookmarks-fill"></i> Types</th>
-                <th scope="col" width="10%"><i class="bi bi-phone-fill"></i> Devices</th>
                 <th scope="col" width="10%">Created at</th>
                 <th scope="col" width="10%">Updated at</th>
                 <th scope="col"><i class="bi-gear-fill"></i></th>
@@ -43,31 +44,34 @@
                              style="max-height:4rem;">
                     </td>
                     <td>
-                        <span>{{$obj->rating}}</span>
+                        <span class="small">{{$obj->rating}}</span>
                         @for($i = 0; $i < $obj->rating; ++$i)
-                            <i class="bi-star-fill text-warning"></i>
+                            <i class="bi-star-fill text-warning small"></i>
                         @endfor
                     <td>
                         <div class="mb-1">
                             {{ $obj->name}}
                         </div>
                     </td>
-                    <td><span class="badge text-bg-{{ $obj->status() }}">{{$obj->has_add}}</span></td>
-                    <td>{{$obj->version}}</td>
-                    <td><i class="bi bi-cloud-arrow-down-fill text-primary"></i>{{$obj->downloads}}</td>
-                    <td><i class="bi bi-arrows-move text-warning"></i>{{$obj->size}}</td>
                     <td>
+                        <i class="bi bi-bookmarks-fill text-danger"></i>
                         @foreach($obj->types as $type)
                             <div>{{ $type->getName() }}</div>
                         @endforeach
                     </td>
                     <td>
+                        <i class="bi bi-phone-fill text-danger"></i>
                         @foreach($obj->devices as $device)
                             <div>{{ $device->getName() }}</div>
                         @endforeach
                     </td>
-                    <td>{{$obj->created_at}}</td>
-                    <td>{{$obj->updated_at}}</td>
+                    <td><span class="badge text-bg-{{ $obj->statusColor() }}">{{$obj->status()}}</span></td>
+                    <td><span class="badge text-bg-{{ $obj->app_statusColor() }}">{{$obj->app_status()}}</span></td>
+                    <td>{{$obj->version}}</td>
+                    <td><i class="bi bi-cloud-arrow-down-fill text-primary"></i>{{$obj->downloads}}</td>
+                    <td>{{$obj->size}}</td>
+                    <td>{{$obj->created_at->format('y.m.d')}}</td>
+                    <td>{{$obj->updated_at->format('y.m.d')}}</td>
 
                 </tr>
             @empty

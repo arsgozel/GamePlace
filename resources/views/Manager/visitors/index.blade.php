@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table table-hover table-striped">
+        <table class="table table-hover table-striped table-bordered">
             <tr class="fw-bold">
                 <th scope="col">ID</th>
                 <th scope="col">IP address</th>
@@ -19,7 +19,7 @@
                 <th scope="col">Device</th>
                 <th scope="col">Device version</th>
                 <th scope="col">Requests</th>
-                <th scope="col"td>Created at</th>
+                <th scope="col">Created at</th>
                 <th scope="col">Updated at</th>
                 <th scope="col"><i class="bi-gear-fill"></i></th>
             </tr>

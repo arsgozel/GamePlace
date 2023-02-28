@@ -17,7 +17,7 @@
                 <form action="{{ route('manager.login') }}" method="post">
                     @csrf
                     @honeypot
-                    <div class="h4 text-danger mb-3 fw-semibold text-center">@lang('app.login')</div>
+                    <div class="h4 mb-3 fw-semibold text-center" style="color: #0F0071">@lang('app.login')</div>
                     <div class="mb-3">
                         <label for="username" class="form-label fw-semibold">
                             @lang('app.username')
@@ -47,7 +47,7 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-danger btn-lg w-100">
+                    <button type="submit" class="btn btn-lg w-100 text-white" style="background-color: #0F0071">
                         @lang('app.login')
                     </button>
                 </form>

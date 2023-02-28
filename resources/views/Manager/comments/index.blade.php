@@ -13,7 +13,7 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-hover table-striped">
+        <table class="table table-hover table-striped table-bordered">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -45,7 +45,7 @@
                     </td>
                     <td>
                         <div class="fs-6 mb-1 text-center">
-                            <span class="badge text-bg-{{ $obj->status() }}">{{$obj->is_approved}}</span>
+                            <span class="badge text-bg-{{ $obj->statusColor() }}">{{$obj->status()}}</span>
                         </div>
                     </td>
                     <td>

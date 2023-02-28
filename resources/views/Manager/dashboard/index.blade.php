@@ -20,21 +20,24 @@
         @endforeach
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="{{ route('manager.comments.index', ['status' => 0]) }}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
-                        <div>Tassyklanylmadyk - @lang('app.comments')</div>
+                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                        <div>@lang('app.has_add') - @lang('app.apps')</div>
                     </a>
                     <div class="card-body small p-1">
                         <div class="table-responsive">
                             <table class="table table-hover table-striped table-sm mb-0">
                                 <tbody>
-                                @forelse($not_approved as $obj)
+                                @forelse($has_add as $obj)
                                     <tr>
-                                        <td width="40%">
-                                            <span><img src="{{ $obj->app->getImage() }}" alt="{{ $obj->app->image }}" class="img-fluid rounded-5" style="max-height:2rem;"></span>
-                                            {{ $obj->app->getName()}}
+                                        <td width="80%">
+                                            <span><img src="{{ $obj->getImage() }}" alt="{{ $obj->image }}" class="img-fluid rounded-5" style="max-height:2rem;"></span>
+                                            <span class="fw-normal">{{ $obj->getName()}}</span>/
+                                            @for($i = 0; $i < $obj->rating; ++$i)
+                                                <i class="bi-star-fill text-warning small"></i>
+                                            @endfor
                                         </td>
-                                        <td width="40%">
-                                            <i class="bi bi-chat-dots-fill text-secondary"></i> {{$obj->comment}}
+                                        <td width="20%">
+                                            <span class="badge text-bg-{{ $obj->statusColor() }}">{{$obj->status()}}</span>
                                         </td>
                                     </tr>
                                 @empty
@@ -48,5 +51,73 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4">
+                    <div class="card">
+                        <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                            <div>@lang('app.offline') - @lang('app.apps')</div>
+                        </a>
+                        <div class="card-body small p-1">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped table-sm mb-0">
+                                    <tbody>
+                                    @forelse($offline as $obj)
+                                        <tr>
+                                            <td width="80%">
+                                                <span><img src="{{ $obj->getImage() }}" alt="{{ $obj->image }}" class="img-fluid rounded-5" style="max-height:2rem;"></span>
+                                                <span class="fw-normal">{{ $obj->getName()}}</span>/
+                                                @for($i = 0; $i < $obj->rating; ++$i)
+                                                    <i class="bi-star-fill text-warning small"></i>
+                                                @endfor
+                                            </td>
+                                            <td width="20%">
+                                                <span class="badge text-bg-{{ $obj->app_statusColor() }}">{{$obj->app_status()}}</span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr class="table-warning">
+                                            <td>Not found</td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                        <div>@lang('app.online') - @lang('app.apps')</div>
+                    </a>
+                    <div class="card-body small p-1">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped table-sm mb-0">
+                                <tbody>
+                                @forelse($online as $obj)
+                                    <tr>
+                                        <td width="80%">
+                                            <span><img src="{{ $obj->getImage() }}" alt="{{ $obj->image }}" class="img-fluid rounded-5" style="max-height:2rem;"></span>
+                                            <span class="fw-normal">{{ $obj->getName()}}</span>/
+                                            @for($i = 0; $i < $obj->rating; ++$i)
+                                                <i class="bi-star-fill text-warning small"></i>
+                                            @endfor
+                                        </td>
+                                        <td width="20%">
+                                            <span class="badge text-bg-{{ $obj->app_statusColor() }}">{{$obj->app_status()}}</span>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr class="table-warning">
+                                        <td>Not found</td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
 @endsection

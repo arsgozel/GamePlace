@@ -82,16 +82,43 @@ class App extends Model
 
     public function getImage()
     {
-        return $this->image ? Storage::url('a/' . $this->image) : asset('img/app.png');
+        return $this->image ? Storage::url('a/' . $this->image) : asset('img/app.jpg');
     }
 
 
     public function status()
     {
         if ($this->has_add == 1) {
+            return trans('app.has_add');
+        } elseif ($this->has_add == 0) {
+            return trans('app.no_add');
+        }
+    }
+
+    public function statusColor()
+    {
+        if ($this->has_add == 1) {
             return 'success';
         } elseif ($this->has_add == 0) {
-            return 'danger';
+            return 'secondary';
+        }
+    }
+
+    public function app_status()
+    {
+        if ($this->app_status == 0) {
+            return trans('app.offline');
+        } elseif ($this->app_status == 1) {
+            return trans('app.online');
+        }
+    }
+
+    public function app_statusColor()
+    {
+        if ($this->app_status == 1) {
+            return 'warning';
+        } elseif ($this->app_status == 0) {
+            return 'primary';
         }
     }
 }

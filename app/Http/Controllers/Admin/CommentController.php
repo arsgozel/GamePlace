@@ -16,12 +16,14 @@ class CommentController extends Controller
             'q' => 'nullable|string|max:255',
             'app' => 'nullable|integer|min:1|exists:apps,id',
             'clients' => 'nullable|integer|min:1|exists:clients,id',
+            'status' => 'nullable|integer|between:0,2',
         ]);
 
 
         $q = $request->q ?: null;
         $f_app = $request->app ?: null;
         $f_clients = $request->clients ?: null;
+        $f_status = $request->has('status') ? $request->status : null;
 
         $objs = Comment::when($q, function ($query, $q) {
             return $query->where(function ($query) use ($q) {
@@ -34,6 +36,9 @@ class CommentController extends Controller
             })
             ->when($f_clients, function ($query, $f_clients) {
                 $query->where('client_id', $f_clients);
+            })
+            ->when(isset($f_status), function ($query) use ($f_status) {
+                return $query->where('status', $f_status);
             })
             ->with(['client', 'app'])
             ->orderBy('id', 'desc')
