@@ -36,14 +36,69 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::resource('apps', AppController::class);
-        Route::resource('types', TypeController::class)->except(['show']);
-        Route::resource('characteristics', CharacteristicController::class)->except(['show']);
-        Route::resource('characteristicValues', CharacteristicValueController::class);
-        Route::resource('devices', DeviceController::class)->except(['show']);
-        Route::resource('managers', ManagerController::class)->except(['show']);
-        Route::resource('contacts', ContactController::class)->only(['index', 'destroy']);
-        Route::resource('comments', CommentController::class)->except(['show', 'create', 'store']);
-        Route::resource('clients', ClientController::class)->except(['create', 'store']);
-        Route::resource('visitors', VisitorController::class)->only(['index', 'destroy']);
+        Route::controller(AppController::class)->prefix('apps')->name('apps.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{slug}', 'show')->name('show')->where('slug', '[A-Za-z0-9-]+');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit')->where('id', '[0-9]+');
+                Route::put('/{id}/update', 'update')->name('update')->where('id', '[0-9]+');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(TypeController::class)->prefix('types')->name('types.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit')->where('id', '[0-9]+');
+                Route::put('/{id}/update', 'update')->name('update')->where('id', '[0-9]+');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(DeviceController::class)->prefix('devices')->name('devices.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit')->where('id', '[0-9]+');
+                Route::put('/{id}/update', 'update')->name('update')->where('id', '[0-9]+');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(ManagerController::class)->prefix('managers')->name('managers.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit')->where('id', '[0-9]+');
+                Route::put('/{id}/update', 'update')->name('update')->where('id', '[0-9]+');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(ContactController::class)->prefix('contacts')->name('contacts.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(CommentController::class)->prefix('comments')->name('comments.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::get('/{id}/edit', 'edit')->name('edit')->where('id', '[0-9]+');
+                Route::put('/{id}/update', 'update')->name('update')->where('id', '[0-9]+');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
+
+        Route::controller(ClientController::class)->prefix('clients')->name('clients.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+            });
+
+        Route::controller(VisitorController::class)->prefix('visitors')->name('visitors.')
+            ->group(function () {
+                Route::get('/index', 'index')->name('index');
+                Route::delete('/{id}/destroy', 'destroy')->name('destroy')->where('id', '[0-9]+');
+            });
     });
