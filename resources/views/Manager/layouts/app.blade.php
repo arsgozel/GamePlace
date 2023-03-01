@@ -9,7 +9,9 @@
     <link rel="icon" href="{{ asset('img/job_search2.png') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/splide.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 </head>
 <body>
 @include('Manager.layouts.header')
@@ -24,5 +26,7 @@
 </div>
 <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/splide.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

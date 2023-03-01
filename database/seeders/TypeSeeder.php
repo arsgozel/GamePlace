@@ -11,14 +11,27 @@ class TypeSeeder extends Seeder
     public function run()
     {
         $objs = [
-            ['Oýunlar', null, [
-                ['Aсtion', null],
-                ['Adventure', null],
+            ['Oýun', null, null, [
+                ['Aсtion', null, null],
+                ['Role playing', null, null],
+                ['Puzzle', null, null],
+                ['Strategy', null, null],
             ]],
-            ['E-Kitaplar', null, [
-                ['Bisness', null],
-                ['Drama', null],
+            ['E-Kitap', null, null, [
+                ['Business', null, null],
+                ['Drama', null, null],
             ]],
+            ['Syýahat', null, null, [
+                ['Adventure', null, null],
+            ]],
+            ['Lifestyle', null, null, [
+                ['Sports', null, null],
+            ]],
+            ['Music', null, null, [
+                ['Relaxing', null, null],
+                ['Jazz', null, null],
+            ]],
+
 
         ];
 
@@ -26,14 +39,16 @@ class TypeSeeder extends Seeder
             $type = Type::create([
                 'name_tm' => $objs[$i][0],
                 'name_en' => $objs[$i][1],
+                'name_ru' => $objs[$i][2],
                 'sort_order' => $i + 1,
             ]);
 
-            for ($j = 0; $j < count($objs[$i][2]); $j++) {
+            for ($j = 0; $j < count($objs[$i][3]); $j++) {
                 Type::create([
                     'parent_id' => $type->id,
-                    'name_tm' => $objs[$i][2][$j][0],
-                    'name_en' => $objs[$i][2][$j][1],
+                    'name_tm' => $objs[$i][3][$j][0],
+                    'name_en' => $objs[$i][3][$j][1],
+                    'name_ru' => $objs[$i][3][$j][2],
                     'sort_order' => $j + 1,
                 ]);
             }

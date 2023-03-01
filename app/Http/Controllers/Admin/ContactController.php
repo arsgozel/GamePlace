@@ -13,6 +13,7 @@ class ContactController extends Controller
         $request->validate([
             'q' => 'nullable|string|max:255',
         ]);
+
         $q = $request->q ?: null;
 
         $objs = Contact::when($q, function ($query, $q) {

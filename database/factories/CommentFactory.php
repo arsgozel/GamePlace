@@ -25,7 +25,7 @@ class CommentFactory extends Factory
             'is_approved' => rand(0, 2),
             'client_id' => $client->id,
             'app_id' => $app->id,
-            'comment' => fake()->text(rand(20, 50)),
+            'comment' => fake()->text(rand(100, 150)),
             'star' => rand(0, 10),
             'created_at' => fake()->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),
         ];

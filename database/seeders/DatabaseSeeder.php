@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
         $devices =  Device::inRandomOrder()->get('id');
         $types =  Type::doesntHave('child')->inRandomOrder()->get('id');
-        App::factory()->count(30)->create()
+        App::factory()->count(50)->create()
         ->each(function ($apps) use ($types, $devices){
             $apps->types()->attach($types->random(rand(1,4)));
             $apps->devices()->attach($devices->random(rand(1,2)));

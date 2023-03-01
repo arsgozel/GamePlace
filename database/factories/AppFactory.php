@@ -31,10 +31,10 @@ class AppFactory extends Factory
             'slug' => str()->slug($name) . '-' . str()->random(10),
             'downloads' => rand(10, 20),
             'rating' => rand(1, 5),
-            'created_at' => fake()->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),
-            'updated_at' => fake()->dateTimeBetween('-2 month', 'now')->format('Y-m-d H:i:s'),
+            'created_at' => fake()->dateTimeBetween('-1 year', 'now')->format('d.m.y'),
+            'updated_at' => fake()->dateTimeBetween('-2 month', 'now')->format('d.m.y'),
             'version' => $num1 . '.' . $num2 . '.' . $num3,
-            'description' => fake()->text(rand(100, 200)),
+            'description' => fake()->text(rand(500, 800)),
             'size' => rand(1, 300) . $sizeAmounts[rand(0, 2)],
         ];
     }

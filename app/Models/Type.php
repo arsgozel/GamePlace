@@ -45,6 +45,8 @@ class Type extends Model
     {
         if (app()->getLocale() == 'en') {
             return $this->name_en ?: $this->name_tm;
+        } elseif (app()->getLocale() == 'ru'){
+            return $this->name_ru ?: $this->name_tm;
         } else {
             return $this->name_tm;
         }

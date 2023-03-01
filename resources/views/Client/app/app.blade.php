@@ -6,6 +6,9 @@
             @for($i = 0; $i < $app->rating; ++$i)
                 <i class="bi-star-fill text-warning small"></i>
             @endfor
+                <a href="{{ route('apps.show', $app->slug) }}" class="link-secondary">
+                                <i class="bi-arrow-right-circle"></i>
+                            </a>
         </span>
     </div>
 

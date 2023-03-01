@@ -40,7 +40,7 @@ class CommentController extends Controller
             ->when(isset($f_status), function ($query) use ($f_status) {
                 return $query->where('status', $f_status);
             })
-            ->with(['client', 'app'])
+            ->with(['client:id,name', 'app:id,name'])
             ->orderBy('id', 'desc')
             ->paginate(50)
             ->withQueryString();
@@ -61,6 +61,7 @@ class CommentController extends Controller
             ]);
     }
 
+
     public function edit($id)
     {
         $obj = Comment::findOrFail($id);
@@ -70,6 +71,7 @@ class CommentController extends Controller
                 'obj' => $obj,
             ]);
     }
+
 
     public function update(Request $request, $id)
     {

@@ -5,13 +5,13 @@
 @section('content')
     <div class="row g-3 mb-4">
         @foreach($modals as $modal)
-            <div class="col-6 col-md-4 col-lg-4 col-xl-4">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-3">
                 <a href="{{ route('manager.' . $modal['name'] . '.index') }}" class="text-decoration-none text-dark">
-                    <div class="border bg-light rounded p-3">
-                        <div class="fs-5">
-                            @lang('app.' . $modal['name'])
+                    <div class="border rounded-5 p-4" style="background-color: #7AA1EB">
+                        <div class="fs-5 text-white">
+                           Total @lang('app.' . $modal['name'])
                         </div>
-                        <div class="fs-3 fw-semibold text-end">
+                        <div class="fs-3 fw-semibold text-white">
                             <i class="bi bi-box-arrow-in-up-right fs-5"></i> {{ $modal['total'] }}
                         </div>
                     </div>
@@ -20,7 +20,7 @@
         @endforeach
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header text-light" style="background-color: #7AA1EB">
                         <div>@lang('app.has_add') - @lang('app.apps')</div>
                     </a>
                     <div class="card-body small p-1">
@@ -53,7 +53,7 @@
             </div>
             <div class="col-lg-4">
                     <div class="card">
-                        <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                        <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header text-light" style="background-color: #7AA1EB">
                             <div>@lang('app.offline') - @lang('app.apps')</div>
                         </a>
                         <div class="card-body small p-1">
@@ -87,7 +87,7 @@
 
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header">
+                    <a href="{{ route('manager.apps.index' )}}" class="d-flex justify-content-between align-items-center text-decoration-none card-header text-light" style="background-color: #7AA1EB">
                         <div>@lang('app.online') - @lang('app.apps')</div>
                     </a>
                     <div class="card-body small p-1">

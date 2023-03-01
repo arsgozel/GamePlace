@@ -22,7 +22,7 @@ class DeviceController extends Controller
 
     public function create()
     {
-        $parents = Device::orderBy('sort_order')
+        $obj = Device::orderBy('sort_order')
             ->get();
 
         return view('manager.devices.create');
@@ -79,7 +79,7 @@ class DeviceController extends Controller
 
         return to_route('manager.devices.index')
             ->with([
-                'success' => trans('app.device') . trans('app.updated') . '!'
+                'success' => trans('app.device') . ' '. trans('app.updated') . '!'
             ]);
     }
 
@@ -91,7 +91,7 @@ class DeviceController extends Controller
 
         return redirect()->back()
             ->with([
-                'success' => trans('app.device') . trans('app.deleted') . '!'
+                'success' => trans('app.device') . ' '. trans('app.deleted') . '!'
             ]);
     }
 }

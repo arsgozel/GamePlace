@@ -18,16 +18,14 @@ class DashboardController extends Controller
     {
         $modals = [
             ['name' => 'apps', 'total' => App::count()],
-            ['name' => 'types', 'total' => Type::count()],
-            ['name' => 'devices', 'total' => Device::count()],
-            ['name' => 'characteristicValues', 'total' => CharacteristicValue::count()],
-            ['name' => 'contacts', 'total' => Contact::count()],
             ['name' => 'clients', 'total' => Client::count()],
+            ['name' => 'contacts', 'total' => Contact::count()],
+            ['name' => 'comments', 'total' => Comment::count()],
         ];
 
         $not_approved = Comment::where('is_approved', 0)
             ->take(10)
-            ->with(['app'])
+            ->with(['app:id,name'])
             ->get();
 
         $has_add = App::where('has_add', 1)

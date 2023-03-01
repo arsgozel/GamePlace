@@ -19,8 +19,8 @@
                 <th scope="col">Device</th>
                 <th scope="col">Device version</th>
                 <th scope="col">Requests</th>
-                <th scope="col">Created at</th>
-                <th scope="col">Updated at</th>
+                <th scope="col">First visit</th>
+                <th scope="col">Last visit</th>
                 <th scope="col"><i class="bi-gear-fill"></i></th>
             </tr>
             <tr>

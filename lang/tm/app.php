@@ -4,6 +4,7 @@ return [
     'app-name' => 'GamePlace',
     'search' => 'Gözleg',
 
+    'ad' => 'Reklama',
     'dashboard' => 'Panel',
     'user' => 'Ulanyjy',
     'users' => 'Ulanyjylar',
@@ -74,7 +75,7 @@ return [
     'error' => 'Näsazlyk',
     'online' => 'Online',
     'offline' => 'Offline',
-
+    'device' => 'Device',
     'codeDelete' => '#:code pozuldy',
     'notes' => 'Bellikler',
     'cantUpdate' => 'Üýtgedip bolmaýar',

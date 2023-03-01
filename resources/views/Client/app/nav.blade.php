@@ -4,6 +4,12 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link link-light fs-5" href="{{ route('contacts.create') }}">
+                    <i class="bi-envelope-plus"></i> @lang('app.contact')
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>

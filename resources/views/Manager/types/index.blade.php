@@ -23,6 +23,7 @@
                 <th scope="col">@lang('app.image')</th>
                 <th scope="col"><img src="{{ asset('img/flag/tkm.png') }}" alt="Türkmen" height="15"> Name</th>
                 <th scope="col"><img src="{{ asset('img/flag/eng.png') }}" alt="English" height="15"> Name</th>
+                <th scope="col"><img src="{{ asset('img/flag/rus.png') }}" alt="Русский" height="15"> Name</th>
                 <th scope="col"><i class="bi-gear-fill"></i></th>
             </tr>
             </thead>
@@ -47,6 +48,12 @@
                             {!! $obj->parent->name_en ?: '<span class="text-danger">' . $obj->parent->name_tm . '</span>' !!} /
                         @endif
                         {!! $obj->name_en ?: '<span class="text-danger">' . $obj->name_tm . '</span>' !!}
+                    </td>
+                    <td>
+                        @if($obj->parent_id)
+                            {!! $obj->parent->name_ru ?: '<span class="text-danger">' . $obj->parent->name_tm . '</span>' !!} /
+                        @endif
+                        {!! $obj->name_ru ?: '<span class="text-danger">' . $obj->name_tm . '</span>' !!}
                     </td>
                     <td>
                         <a href="{{ route('manager.types.edit', $obj->id) }}" class="btn btn-success btn-sm my-1">

@@ -4,10 +4,12 @@ return [
     'app-name' => 'GamePlace',
     'search' => 'Search',
 
+    'contact' => 'Contact',
+    'show' => 'Show',
     'dashboard' => 'Dashboard',
     'user' => 'Manager',
     'users' => 'Users',
-    'types' => 'Type',
+    'type' => 'Type',
     'types' => 'Types',
     'parentType' => 'Parent Type',
     'app' => 'App',

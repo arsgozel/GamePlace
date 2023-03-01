@@ -62,6 +62,7 @@ class VisitorController extends Controller
         ]);
     }
 
+
     public function destroy($id)
     {
         $visitor = Visitor::findOrFail($id);
